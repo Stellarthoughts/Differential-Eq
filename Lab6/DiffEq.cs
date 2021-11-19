@@ -13,7 +13,7 @@ namespace Lab6
 
         public static double F2FirstDev(double x, double y)
         {
-            return 2 * Math.Exp(x) * Math.Cos(x) - y;
+            return Math.Exp(x) * Math.Cos(x) - y;
         }
 
         public static double F2SecondDev(double x, double y)
