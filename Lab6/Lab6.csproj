@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
@@ -9,5 +9,5 @@
   <ItemGroup>
     <PackageReference Include="OxyPlot.Wpf" Version="2.1.0" />
   </ItemGroup>
-
+   
 </Project>
