@@ -1,4 +1,5 @@
 using OxyPlot;
+using OxyPlot.Legends;
 using OxyPlot.Series;
 using System;
 using System.Collections.Generic;
@@ -41,11 +42,11 @@ namespace Lab6
                 n = Int32.Parse(tbN.Text, CultureInfo.InvariantCulture);
                 f1_0 = Double.Parse(tbF1_0.Text, CultureInfo.InvariantCulture);
                 f2_0 = Double.Parse(tbF2_0.Text, CultureInfo.InvariantCulture);
-                estval = 0.001;
+                estval = Double.Parse(tbEstval.Text, CultureInfo.InvariantCulture); ;
             }
-            catch (FormatException ex)
+            catch (FormatException)
             {
-                btnCalculate.Content = $"Error! {ex.Message}";
+                btnCalculate.Content = $"Format error!";
                 return;
             }
             btnCalculate.Content = "Calculate";
@@ -59,11 +60,20 @@ namespace Lab6
 
             LineSeries s = new();
             res[0].ForEach(x => s.Points.Add(x));
+            s.Title = "y' = e^x * cosx - y";
             model.Series.Add(s);
+      
 
             LineSeries d = new();
             res[1].ForEach(x => d.Points.Add(x));
+            d.Title = "y'' = 2 e^x cos x";
             model.Series.Add(d);
+
+            model.Legends.Add(new Legend()
+            {
+                LegendTitle = "Legend",
+                LegendPosition = LegendPosition.RightTop
+            });
 
             model.ResetAllAxes();
             model.InvalidatePlot(true);
