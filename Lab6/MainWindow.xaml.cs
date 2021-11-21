@@ -16,21 +16,24 @@ namespace Lab6
         {
             InitializeComponent();
 
-            DiffEqSolveSettings settings = new() {
-                a = 0, b = 0.65, n = 1000,
-                initValue = new List<double> { 0 },
-                eqList = new List<DiffEqDelegate> { F2FirstDev, F2SecondDev },
-            };
-
-            var res = DiffEqSolve.RK(settings,1,0.001);
+            var res = DiffEqSolve.RK(0,0.65,1000,0,F1FirstDev,0.001);
+            var res2 = DiffEqSolve.RKSystem(0, 1, 1000, 1, 0, F2FirstDev, F2SecondDev, 0.001);
 
             var model = MainViewModel.MyModel;
             model.Series.Clear();
             model.Annotations.Clear();
 
             LineSeries s = new();
-            res.ForEach(x => s.Points.Add(x));
+            res2[0].ForEach(x => s.Points.Add(x));
             model.Series.Add(s);
+
+            LineSeries d = new();
+            res2[1].ForEach(x => d.Points.Add(x));
+            model.Series.Add(d);
+
+            LineSeries f = new();
+            res.ForEach(x => f.Points.Add(x));
+            model.Series.Add(f);
 
             model.ResetAllAxes();
             model.InvalidatePlot(true);
