@@ -21,7 +21,7 @@ namespace Lab6
             Calculate();
         }
 
-        private void btnCalculate_Click(object sender, RoutedEventArgs e)
+        private void BtnCalculate_Click(object sender, RoutedEventArgs e)
         {
             Calculate();
         }
