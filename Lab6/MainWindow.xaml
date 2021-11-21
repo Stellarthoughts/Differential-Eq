@@ -20,12 +20,13 @@
                 <RowDefinition Height="20"/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
-            <Grid HorizontalAlignment="Center" Grid.Row="1">
-                <Rectangle HorizontalAlignment="Center" Width="614" Fill="#FF445C80" RadiusX="10" RadiusY="10">
+            <Grid HorizontalAlignment="Center" Grid.Row="1" Width="600">
+                <Rectangle Fill="#FF445C80" RadiusX="10" RadiusY="10">
                     <Rectangle.Effect>
                         <DropShadowEffect BlurRadius="5" Opacity="0.5"/>
                     </Rectangle.Effect>
                 </Rectangle>
+                <Label Content="Second order differential equation with RK4" FontSize="18" FontWeight="Bold" Foreground="#FFD7E5E6" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
             </Grid>
         </Grid>
         <Grid Grid.Row="1" Margin="0,0,0,0" HorizontalAlignment="Stretch" Height="Auto" VerticalAlignment="Stretch" Width="Auto">
@@ -36,9 +37,9 @@
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="20"/>
-                <ColumnDefinition Width="280"/>
+                <ColumnDefinition Width="230"/>
                 <ColumnDefinition Width="20"/>
-                <ColumnDefinition Width="280"/>
+                <ColumnDefinition Width="340"/>
                 <ColumnDefinition Width="20"/>
                 <ColumnDefinition/>
                 <ColumnDefinition Width="20"/>
@@ -71,22 +72,23 @@
                         <ColumnDefinition Width="20"/>
                         <ColumnDefinition Width="95*"/>
                         <ColumnDefinition Width="96*"/>
-                        <ColumnDefinition Width="30"/>
+                        <ColumnDefinition Width="20"/>
                     </Grid.ColumnDefinitions>
-                    <Label Content="A:" Margin="63,2,0,0" VerticalAlignment="Top" Foreground="#FFE9B29E" FontWeight="Bold" FontSize="18" Grid.Column="1" Height="34"/>
-                    <TextBox x:Name="tbA" Text="0" TextWrapping="Wrap" BorderThickness="3,5,3,5" BorderBrush="#FFB39894" FontStretch="Normal" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Background="#FFD7E5E6" FontSize="14" Grid.Column="2" Margin="0,2,0,0" HorizontalAlignment="Left" Width="78" Height="32" VerticalAlignment="Top"/>
-                    <Label Content="B:" Margin="63,39,1,0" VerticalAlignment="Top" Foreground="#FFE9B29E" FontWeight="Bold" FontSize="18" Grid.Column="1" Height="34"/>
-                    <TextBox x:Name="tbB" Margin="0,39,0,0" Text="2" TextWrapping="Wrap" BorderThickness="3,5,3,5" BorderBrush="#FFB39894" FontStretch="Normal" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Background="#FFD7E5E6" FontSize="14" Grid.Column="2" HorizontalAlignment="Left" Width="78" Height="33" VerticalAlignment="Top"/>
-                    <Label Content="N:" Margin="60,77,1,0" VerticalAlignment="Top" Foreground="#FFE9B29E" FontWeight="Bold" FontSize="18" Grid.Column="1" Height="34"/>
-                    <TextBox x:Name="tbN" Margin="0,77,0,0" Text="10" TextWrapping="Wrap" BorderThickness="3,5,3,5" BorderBrush="#FFB39894" FontStretch="Normal" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Background="#FFD7E5E6" FontSize="14" Grid.Column="2" HorizontalAlignment="Left" Width="78" Height="33" VerticalAlignment="Top"/>
-                    <Label Content="f' (x0):" Margin="24,115,0,0" VerticalAlignment="Top" Foreground="#FFE9B29E" FontWeight="Bold" FontSize="18" Grid.Column="1" Height="34"/>
-                    <Label Content="f'' (x0):" Margin="19,151,0,0" VerticalAlignment="Top" Foreground="#FFE9B29E" FontWeight="Bold" FontSize="18" Grid.Column="1" Height="34"/>
-                    <TextBox x:Name="tbF1_0" Margin="0,115,0,0" Text="1" TextWrapping="Wrap" BorderThickness="3,5,3,5" BorderBrush="#FFB39894" FontStretch="Normal" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Background="#FFD7E5E6" FontSize="14" Grid.Column="2" HorizontalAlignment="Left" Width="78" Height="33" VerticalAlignment="Top"/>
-                    <TextBox x:Name="tbF2_0" Margin="0,153,0,0" Text="0" TextWrapping="Wrap" BorderThickness="3,5,3,5" BorderBrush="#FFB39894" FontStretch="Normal" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Background="#FFD7E5E6" FontSize="14" Grid.Column="2" HorizontalAlignment="Left" Width="78" Height="33" VerticalAlignment="Top"/>
-                    <Button x:Name="btnCalculate" Content="Button" Background="#FFE9B29E" BorderBrush="{x:Null}" Click="btnCalculate_Click" Grid.Column="1" Width="Auto" Grid.ColumnSpan="2" Height="48" VerticalAlignment="Bottom"/>
-                    <TextBox x:Name="tbEstval" Margin="0,192,0,0" Text="0.001" TextWrapping="Wrap" BorderThickness="3,5,3,5" BorderBrush="#FFB39894" FontStretch="Normal" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Background="#FFD7E5E6" FontSize="14" Grid.Column="2" HorizontalAlignment="Left" Width="78" Height="33" VerticalAlignment="Top"/>
-                    <Label Content="Est. val:" Margin="16,190,0,0" VerticalAlignment="Top" Foreground="#FFE9B29E" FontWeight="Bold" FontSize="18" Grid.Column="1" Height="34"/>
+                    <Label Content="A:" Margin="0,0,1,0" VerticalAlignment="Top" Foreground="#FFE9B29E" FontWeight="Bold" FontSize="18" Grid.Column="1" Height="34" HorizontalAlignment="Right" Width="31"/>
+                    <TextBox x:Name="tbA" Text="0" TextWrapping="Wrap" BorderThickness="3,5,3,5" BorderBrush="#FFB39894" FontStretch="Normal" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Background="#FFD7E5E6" FontSize="14" Grid.Column="2" Margin="0,2,0,0" Height="32" VerticalAlignment="Top" Foreground="#FF445C80" FontWeight="Bold"/>
+                    <Label Content="B:" Margin="0,39,1,0" VerticalAlignment="Top" Foreground="#FFE9B29E" FontWeight="Bold" FontSize="18" Grid.Column="1" Height="34" HorizontalAlignment="Right" Width="31"/>
+                    <TextBox x:Name="tbB" Margin="0,39,0,0" Text="1" TextWrapping="Wrap" BorderThickness="3,5,3,5" BorderBrush="#FFB39894" FontStretch="Normal" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Background="#FFD7E5E6" FontSize="14" Grid.Column="2" Height="33" VerticalAlignment="Top" Foreground="#FF445C80" FontWeight="Bold"/>
+                    <Label Content="N:" Margin="0,77,1,0" VerticalAlignment="Top" Foreground="#FFE9B29E" FontWeight="Bold" FontSize="18" Grid.Column="1" Height="34" HorizontalAlignment="Right" Width="34"/>
+                    <TextBox x:Name="tbN" Margin="0,77,0,0" Text="10" TextWrapping="Wrap" BorderThickness="3,5,3,5" BorderBrush="#FFB39894" FontStretch="Normal" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Background="#FFD7E5E6" FontSize="14" Grid.Column="2" Height="33" VerticalAlignment="Top" Foreground="#FF445C80" FontWeight="Bold"/>
+                    <Label Content="f' (x0):" Margin="0,115,1,0" VerticalAlignment="Top" Foreground="#FFE9B29E" FontWeight="Bold" FontSize="18" Grid.Column="1" Height="34" HorizontalAlignment="Right" Width="70"/>
+                    <Label Content="f'' (x0):" Margin="0,151,1,0" VerticalAlignment="Top" Foreground="#FFE9B29E" FontWeight="Bold" FontSize="18" Grid.Column="1" Height="34" HorizontalAlignment="Right" Width="75"/>
+                    <TextBox x:Name="tbF1_0" Margin="0,115,0,0" Text="1" TextWrapping="Wrap" BorderThickness="3,5,3,5" BorderBrush="#FFB39894" FontStretch="Normal" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Background="#FFD7E5E6" FontSize="14" Grid.Column="2" Height="33" VerticalAlignment="Top" Foreground="#FF445C80" FontWeight="Bold"/>
+                    <TextBox x:Name="tbF2_0" Margin="0,153,0,0" Text="0" TextWrapping="Wrap" BorderThickness="3,5,3,5" BorderBrush="#FFB39894" FontStretch="Normal" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Background="#FFD7E5E6" FontSize="14" Grid.Column="2" Height="33" VerticalAlignment="Top" Foreground="#FF445C80" FontWeight="Bold"/>
+                    <Button x:Name="btnCalculate" Content="Calculate" Background="#FFE9B29E" BorderBrush="{x:Null}" Click="btnCalculate_Click" Grid.Column="1" Width="Auto" Grid.ColumnSpan="2" Height="48" VerticalAlignment="Bottom" Foreground="#FF445C80" FontSize="18" FontWeight="Bold"/>
+                    <TextBox x:Name="tbEstval" Margin="0,192,0,0" Text="0.001" TextWrapping="Wrap" BorderThickness="3,5,3,5" BorderBrush="#FFB39894" FontStretch="Normal" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Background="#FFD7E5E6" FontSize="14" Grid.Column="2" Height="33" VerticalAlignment="Top" Foreground="#FF445C80" FontWeight="Bold"/>
+                    <Label Content="Est. val:" Margin="0,190,1,0" VerticalAlignment="Top" Foreground="#FFE9B29E" FontWeight="Bold" FontSize="18" Grid.Column="1" Height="34" HorizontalAlignment="Right" Width="78"/>
                 </Grid>
+                <Label Content="Interval" FontSize="18" FontWeight="Bold" Foreground="#FFD7E5E6" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Grid.Column="1" Grid.Row="1"/>
             </Grid>
             <Grid Grid.Column="3" Margin="0,0,20,0" Grid.Row="1" Height="Auto" Width="Auto" Grid.ColumnSpan="2">
                 <Grid.ColumnDefinitions>
@@ -106,12 +108,15 @@
                         <DropShadowEffect BlurRadius="5" Opacity="0.5"/>
                     </Rectangle.Effect>
                 </Rectangle>
-                <TextBlock x:Name="tbOutput" TextWrapping="Wrap" Background="#FFD7E5E6" Padding="10,10,10,10" Margin="0,0,0,0" Foreground="#FF445C80" FontSize="14" FontWeight="Normal" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Stretch" Height="Auto" VerticalAlignment="Stretch" Width="Auto"/>
                 <Rectangle Fill="#FFB39894" RadiusX="10" RadiusY="10" Margin="0,0,20,0" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2">
                     <Rectangle.Effect>
                         <DropShadowEffect BlurRadius="5" Opacity="0.5"/>
                     </Rectangle.Effect>
                 </Rectangle>
+                <Label Content="Table" FontSize="18" FontWeight="Bold" Foreground="#FFD7E5E6" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Grid.Column="1" Grid.Row="1"/>
+                <ScrollViewer Grid.Column="1" Grid.Row="3" VerticalScrollBarVisibility="Auto">
+                    <TextBlock x:Name="tbOutput" TextWrapping="Wrap" Background="#FFD7E5E6" Padding="10,10,20,10" Foreground="#FF445C80" FontSize="16" FontWeight="Normal" Grid.Row="3" Grid.Column="1" Width="Auto" ScrollViewer.HorizontalScrollBarVisibility="Disabled" FlowDirection="LeftToRight" ScrollViewer.VerticalScrollBarVisibility="Visible"/>
+                </ScrollViewer>
             </Grid>
             <Grid Grid.Column="5" Margin="0,0,20,0" Grid.Row="1" Height="Auto" Width="Auto" Grid.ColumnSpan="2">
                 <Grid.RowDefinitions>
@@ -132,6 +137,7 @@
                         <DropShadowEffect BlurRadius="5" Opacity="0.5"/>
                     </Rectangle.Effect>
                 </Rectangle>
+                <Label Content="Graph" Margin="106,0,114,0" FontSize="18" FontWeight="Bold" Foreground="#FFD7E5E6" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Grid.Row="1"/>
             </Grid>
         </Grid>
     </Grid>

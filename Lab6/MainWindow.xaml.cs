@@ -28,6 +28,7 @@ namespace Lab6
 
         private void Calculate()
         {
+            CultureInfo ci = new CultureInfo("en-us");
             double a;
             double b;
             int n;
@@ -53,21 +54,25 @@ namespace Lab6
 
             var res = DiffEqSolve.RKSystem2(a, b, n, f1_0, f2_0, F2FirstDev, F2SecondDev, estval);
 
+            string s = "";
+            for (int i = 0; i < res[0].Count; i++)
+                s += $"{i}: x = {res[0][i].X.ToString("F03",ci)} y' = {res[0][i].Y.ToString("F03", ci)} y'' = {res[1][i].Y.ToString("F03", ci)}\n";
+            tbOutput.Text = s;
+
             var model = ((MainViewModel)this.DataContext).MyModel;
 
             model.Series.Clear();
             model.Annotations.Clear();
 
-            LineSeries s = new();
-            res[0].ForEach(x => s.Points.Add(x));
-            s.Title = "y' = e^x * cosx - y";
-            model.Series.Add(s);
+            LineSeries ls1 = new();
+            res[0].ForEach(x => ls1.Points.Add(x));
+            ls1.Title = "y' = e^x * cos x - y";
+            model.Series.Add(ls1);
       
-
-            LineSeries d = new();
-            res[1].ForEach(x => d.Points.Add(x));
-            d.Title = "y'' = 2 e^x cos x";
-            model.Series.Add(d);
+            LineSeries ls2 = new();
+            res[1].ForEach(x => ls2.Points.Add(x));
+            ls2.Title = "y'' = 2 e^x cos x";
+            model.Series.Add(ls2);
 
             model.Legends.Add(new Legend()
             {
