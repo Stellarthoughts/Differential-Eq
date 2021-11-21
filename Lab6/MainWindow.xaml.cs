@@ -2,7 +2,9 @@ using OxyPlot;
 using OxyPlot.Series;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Windows;
+using System.Windows.Controls;
 using static Lab6.DiffEq;
 
 namespace Lab6
@@ -15,30 +17,57 @@ namespace Lab6
         public MainWindow()
         {
             InitializeComponent();
+            Calculate();
+        }
 
-            var res = DiffEqSolve.RK(0,0.65,1000,0,F1FirstDev,0.001);
-            var res2 = DiffEqSolve.RKSystem(0, 1, 1000, 1, 0, F2FirstDev, F2SecondDev, 0.001);
+        private void btnCalculate_Click(object sender, RoutedEventArgs e)
+        {
+            Calculate();
+        }
 
-            var model = MainViewModel.MyModel;
+        private void Calculate()
+        {
+            double a;
+            double b;
+            int n;
+            double f1_0;
+            double f2_0;
+            double estval;
+
+            try
+            {
+                a = Double.Parse(tbA.Text, CultureInfo.InvariantCulture);
+                b = Double.Parse(tbB.Text, CultureInfo.InvariantCulture);
+                n = Int32.Parse(tbN.Text, CultureInfo.InvariantCulture);
+                f1_0 = Double.Parse(tbF1_0.Text, CultureInfo.InvariantCulture);
+                f2_0 = Double.Parse(tbF2_0.Text, CultureInfo.InvariantCulture);
+                estval = 0.001;
+            }
+            catch (FormatException ex)
+            {
+                btnCalculate.Content = $"Error! {ex.Message}";
+                return;
+            }
+            btnCalculate.Content = "Calculate";
+
+            var res = DiffEqSolve.RKSystem2(a, b, n, f1_0, f2_0, F2FirstDev, F2SecondDev, estval);
+
+            var model = ((MainViewModel)this.DataContext).MyModel;
+
             model.Series.Clear();
             model.Annotations.Clear();
 
             LineSeries s = new();
-            res2[0].ForEach(x => s.Points.Add(x));
+            res[0].ForEach(x => s.Points.Add(x));
             model.Series.Add(s);
 
             LineSeries d = new();
-            res2[1].ForEach(x => d.Points.Add(x));
+            res[1].ForEach(x => d.Points.Add(x));
             model.Series.Add(d);
-
-            LineSeries f = new();
-            res.ForEach(x => f.Points.Add(x));
-            model.Series.Add(f);
 
             model.ResetAllAxes();
             model.InvalidatePlot(true);
         }
-
     }
 
     public class MainViewModel
@@ -48,6 +77,6 @@ namespace Lab6
             MyModel = new PlotModel();
         }
 
-        public static PlotModel MyModel { get; private set; }
+        public PlotModel MyModel { get; private set; }
     }
 }

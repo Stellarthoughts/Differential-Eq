@@ -6,74 +6,118 @@
 		xmlns:local="clr-namespace:Lab6"
 		xmlns:oxy="http://oxyplot.org/wpf"
 		mc:Ignorable="d"
-		Title="Differential Equations" Height="600" Width="1088" Background="#FF94A1B3">
-	<Window.DataContext>
-		<local:MainViewModel/>
-	</Window.DataContext>
-	<Grid Name="MainGrid">
-		<Grid.RowDefinitions>
-			<RowDefinition Height="80"/>
-			<RowDefinition Height="1*"/>
-		</Grid.RowDefinitions>
-		<Grid Margin="0,0,0,0" HorizontalAlignment="Stretch" Height="Auto" VerticalAlignment="Stretch" Width="Auto">
-			<Grid.RowDefinitions>
-				<RowDefinition Height="20"/>
-				<RowDefinition Height="1*"/>
-				<RowDefinition Height="20"/>
-			</Grid.RowDefinitions>
-			<Grid HorizontalAlignment="Center" Grid.Row="1">
-				<Rectangle HorizontalAlignment="Center" Width="614" Fill="#FF445C80" RadiusX="10" RadiusY="10">
-					<Rectangle.Effect>
-						<DropShadowEffect BlurRadius="5" Opacity="0.5"/>
-					</Rectangle.Effect>
-				</Rectangle>
-				<Label x:Name="lblName" Content="" FontSize="20" Background="{x:Null}" Foreground="White" Margin="30,1,30,2"/>
-			</Grid>
-
-		</Grid>
-		<Grid Grid.Row="1" Margin="0,0,0,0" HorizontalAlignment="Stretch" Height="Auto" VerticalAlignment="Stretch" Width="Auto">
-			<Grid.RowDefinitions>
-				<RowDefinition Height="20"/>
-				<RowDefinition Height="1*"/>
-				<RowDefinition Height="20"/>
-			</Grid.RowDefinitions>
-			<Grid.ColumnDefinitions>
-				<ColumnDefinition Width="20"/>
-				<ColumnDefinition Width="3*"/>
-				<ColumnDefinition Width="20"/>
-				<ColumnDefinition Width="3*"/>
-				<ColumnDefinition Width="20"/>
-				<ColumnDefinition Width="5*"/>
-				<ColumnDefinition Width="20"/>
-			</Grid.ColumnDefinitions>
-			<Grid Grid.Column="1" Margin="0,0,20,0" Grid.Row="1" Height="Auto" Width="Auto" Grid.ColumnSpan="2">
-				<Rectangle Fill="#FF445C80" RadiusX="10" RadiusY="10" Margin="0,0,0,0" HorizontalAlignment="Stretch" Height="Auto" VerticalAlignment="Stretch">
-					<Rectangle.Effect>
-						<DropShadowEffect BlurRadius="5" Opacity="0.5"/>
-					</Rectangle.Effect>
-				</Rectangle>
-				<Label Content="" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Height="26" Width="38"/>
-				<TextBox HorizontalAlignment="Left" Margin="17,41,0,0" Text="TextBox" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Height="33" BorderThickness="3,5,3,5" BorderBrush="#FFE9B29E" FontStretch="Normal"/>
-				<TextBox HorizontalAlignment="Left" Margin="84,79,0,0" Text="TextBox" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Height="18"/>
-				<TextBox HorizontalAlignment="Left" Margin="84,102,0,0" Text="TextBox" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Height="18"/>
-			</Grid>
-			<Grid Grid.Column="3" Margin="0,0,20,0" Grid.Row="1" Height="Auto" Width="Auto" Grid.ColumnSpan="2">
-				<Rectangle Fill="#FF445C80" RadiusX="10" RadiusY="10" Margin="0,0,0,0" HorizontalAlignment="Stretch" Height="Auto" VerticalAlignment="Stretch">
-					<Rectangle.Effect>
-						<DropShadowEffect BlurRadius="5" Opacity="0.5"/>
-					</Rectangle.Effect>
-				</Rectangle>
-			</Grid>
-			<Grid Grid.Column="5" Margin="0,0,20,0" Grid.Row="1" Height="Auto" Width="Auto" Grid.ColumnSpan="2">
-				<Rectangle Fill="#FF445C80" RadiusX="10" RadiusY="10" Margin="0,0,0,0" HorizontalAlignment="Stretch" Height="Auto" VerticalAlignment="Stretch">
-					<Rectangle.Effect>
-						<DropShadowEffect BlurRadius="5" Opacity="0.5"/>
-					</Rectangle.Effect>
-				</Rectangle>
-				<Label Content="Label" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" Background="{x:Null}" Foreground="White"/>
-				<oxy:PlotView x:Name="pvPlot" Model="{Binding MyModel}" Background="#FF94A1B3" PanCursor="Hand" ZoomHorizontalCursor="SizeWE" ZoomRectangleCursor="SizeNWSE" ZoomVerticalCursor="SizeNS" Margin="10,53,10,10"/>
-				<Label Content="Label" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Height="26" Width="38"/>
-			</Grid>
-		</Grid>
-	</Grid>
+		Title="Differential Equations" Height="600" Width="1100" Background="#FF94A1B3">
+    <Window.DataContext>
+        <local:MainViewModel/>
+    </Window.DataContext>
+    <Grid Name="MainGrid">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="65"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+        <Grid Margin="0,0,0,0" HorizontalAlignment="Stretch" Height="Auto" VerticalAlignment="Stretch" Width="Auto">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="20"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid HorizontalAlignment="Center" Grid.Row="1">
+                <Rectangle HorizontalAlignment="Center" Width="614" Fill="#FF445C80" RadiusX="10" RadiusY="10">
+                    <Rectangle.Effect>
+                        <DropShadowEffect BlurRadius="5" Opacity="0.5"/>
+                    </Rectangle.Effect>
+                </Rectangle>
+            </Grid>
+        </Grid>
+        <Grid Grid.Row="1" Margin="0,0,0,0" HorizontalAlignment="Stretch" Height="Auto" VerticalAlignment="Stretch" Width="Auto">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="20"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="20"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="20"/>
+                <ColumnDefinition Width="280"/>
+                <ColumnDefinition Width="20"/>
+                <ColumnDefinition Width="280"/>
+                <ColumnDefinition Width="20"/>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="20"/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="1" Margin="0,0,20,0" Grid.Row="1" Height="Auto" Width="Auto" Grid.ColumnSpan="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="10"/>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="20"/>
+                    <RowDefinition/>
+                    <RowDefinition Height="20"/>
+                </Grid.RowDefinitions>
+                <Rectangle Fill="#FF445C80" RadiusX="10" RadiusY="10" Height="Auto" Grid.RowSpan="5">
+                    <Rectangle.Effect>
+                        <DropShadowEffect BlurRadius="5" Opacity="0.5"/>
+                    </Rectangle.Effect>
+                </Rectangle>
+                <Rectangle Fill="#FFB39894" RadiusX="10" RadiusY="10" Grid.Row="1" Margin="40,0,19,0">
+                    <Rectangle.Effect>
+                        <DropShadowEffect BlurRadius="5" Opacity="0.5"/>
+                    </Rectangle.Effect>
+                </Rectangle>
+                <Label Content="A:" HorizontalAlignment="Left" Margin="81,17,0,0" VerticalAlignment="Top" Foreground="#FFE9B29E" FontWeight="Bold" FontSize="18" Grid.Row="2" Grid.RowSpan="2"/>
+                <Label Content="B:" HorizontalAlignment="Left" Margin="79,37,0,0" VerticalAlignment="Top" Foreground="#FFE9B29E" FontWeight="Bold" FontSize="18" Grid.Row="3"/>
+                <TextBox x:Name="tbA" HorizontalAlignment="Left" Margin="122,0,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" Width="78" Height="32" BorderThickness="3,5,3,5" BorderBrush="#FFB39894" FontStretch="Normal" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Background="#FFD7E5E6" FontSize="14" Grid.Row="3"/>
+                <TextBox x:Name="tbB" HorizontalAlignment="Left" Margin="122,37,0,0" Text="2" TextWrapping="Wrap" VerticalAlignment="Top" Width="78" Height="33" BorderThickness="3,5,3,5" BorderBrush="#FFB39894" FontStretch="Normal" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Background="#FFD7E5E6" FontSize="14" Grid.Row="3"/>
+                <Label Content="N:" HorizontalAlignment="Left" Margin="79,75,0,0" VerticalAlignment="Top" Foreground="#FFE9B29E" FontWeight="Bold" FontSize="18" Grid.Row="3"/>
+                <TextBox x:Name="tbN" HorizontalAlignment="Left" Margin="122,75,0,0" Text="10" TextWrapping="Wrap" VerticalAlignment="Top" Width="78" Height="33" BorderThickness="3,5,3,5" BorderBrush="#FFB39894" FontStretch="Normal" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Background="#FFD7E5E6" FontSize="14" Grid.Row="3"/>
+                <Label Content="f' (x0):" HorizontalAlignment="Left" Margin="43,112,0,0" VerticalAlignment="Top" Foreground="#FFE9B29E" FontWeight="Bold" FontSize="18" Grid.Row="3"/>
+                <Label Content="f'' (x0):" HorizontalAlignment="Left" Margin="40,146,0,0" VerticalAlignment="Top" Foreground="#FFE9B29E" FontWeight="Bold" FontSize="18" Grid.Row="3"/>
+                <TextBox x:Name="tbF1_0" HorizontalAlignment="Left" Margin="122,113,0,0" Text="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="78" Height="33" BorderThickness="3,5,3,5" BorderBrush="#FFB39894" FontStretch="Normal" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Background="#FFD7E5E6" FontSize="14" Grid.Row="3"/>
+                <TextBox x:Name="tbF2_0" HorizontalAlignment="Left" Margin="122,152,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" Width="78" Height="33" BorderThickness="3,5,3,5" BorderBrush="#FFB39894" FontStretch="Normal" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Background="#FFD7E5E6" FontSize="14" Grid.Row="3"/>
+                <Button x:Name="btnCalculate" Content="Button" Margin="48,0,48,0" Grid.Row="3" Background="#FFE9B29E" BorderBrush="{x:Null}" Click="btnCalculate_Click" Height="48" VerticalAlignment="Bottom"/>
+            </Grid>
+            <Grid Grid.Column="3" Margin="0,0,20,0" Grid.Row="1" Height="Auto" Width="Auto" Grid.ColumnSpan="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="20"/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="20"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="10"/>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="20"/>
+                    <RowDefinition/>
+                    <RowDefinition Height="20"/>
+                </Grid.RowDefinitions>
+                <Rectangle Fill="#FF445C80" RadiusX="10" RadiusY="10" Height="Auto" Grid.RowSpan="5" Grid.ColumnSpan="3">
+                    <Rectangle.Effect>
+                        <DropShadowEffect BlurRadius="5" Opacity="0.5"/>
+                    </Rectangle.Effect>
+                </Rectangle>
+                <TextBlock x:Name="tbOutput" Text="TextBlock" TextWrapping="Wrap" Background="#FFD7E5E6" Padding="10,10,10,10" Margin="0,0,0,0" Foreground="#FF445C80" FontSize="14" FontWeight="Normal" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Stretch" Height="Auto" VerticalAlignment="Stretch" Width="Auto"/>
+                <Rectangle Fill="#FFB39894" RadiusX="10" RadiusY="10" Margin="0,0,20,0" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2">
+                    <Rectangle.Effect>
+                        <DropShadowEffect BlurRadius="5" Opacity="0.5"/>
+                    </Rectangle.Effect>
+                </Rectangle>
+            </Grid>
+            <Grid Grid.Column="5" Margin="0,0,20,0" Grid.Row="1" Height="Auto" Width="Auto" Grid.ColumnSpan="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="10"/>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="10"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Rectangle Fill="#FF445C80" RadiusX="10" RadiusY="10" Height="Auto" Grid.RowSpan="4">
+                    <Rectangle.Effect>
+                        <DropShadowEffect BlurRadius="5" Opacity="0.5"/>
+                    </Rectangle.Effect>
+                </Rectangle>
+                <Label Content="Label" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="20" Background="{x:Null}" Foreground="White" Margin="0,149,0,0" Grid.Row="3"/>
+                <oxy:PlotView x:Name="pvPlot" Model="{Binding MyModel}" Background="#FFD7E5E6" PanCursor="Hand" ZoomHorizontalCursor="SizeWE" ZoomRectangleCursor="SizeNWSE" ZoomVerticalCursor="SizeNS" Margin="20,10,20,20" Grid.Row="3"/>
+                <Rectangle Fill="#FFB39894" RadiusX="10" RadiusY="10" Margin="20,0,20,0" Grid.Row="1">
+                    <Rectangle.Effect>
+                        <DropShadowEffect BlurRadius="5" Opacity="0.5"/>
+                    </Rectangle.Effect>
+                </Rectangle>
+            </Grid>
+        </Grid>
+    </Grid>
 </Window>

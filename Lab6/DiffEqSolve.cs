@@ -36,7 +36,7 @@ namespace Lab6
             return crds;
         }
 
-        public static List<List<DataPoint>> RKSystem(double a, double b, double n, double initValue1, double initValue2, DiffEqDelegate eq1, DiffEqDelegate eq2, double estval)
+        public static List<List<DataPoint>> RKSystem2(double a, double b, double n, double initValue1, double initValue2, DiffEqDelegate eq1, DiffEqDelegate eq2, double estval)
         {
             List<List<DataPoint>> res = new();
             List<DataPoint> crds1 = new();
