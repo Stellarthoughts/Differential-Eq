@@ -28,7 +28,7 @@ namespace Lab6
 
         private void Calculate()
         {
-            CultureInfo ci = new CultureInfo("en-us");
+            CultureInfo ci = new("en-us");
             double a;
             double b;
             int n;
