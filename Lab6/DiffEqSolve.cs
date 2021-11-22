@@ -36,7 +36,7 @@ namespace Lab6
             return crds;
         }
 
-        public static List<List<DataPoint>> RKSystem2(double a, double b, double n, double initValue1, double initValue2, DiffEqDelegate eq1, DiffEqDelegate eq2, double estval)
+        public static List<List<DataPoint>> RKSystem2(double a, double b, double n, double initValue1, double initValue2, DiffEqDelegate eq1, DiffEqDelegate eq2, double estval, double omega)
         {
             List<List<DataPoint>> res = new();
             List<DataPoint> crds1 = new();
@@ -50,6 +50,8 @@ namespace Lab6
             double yi = initValue1;
             double zi = initValue2;
 
+            DiffEq.omega = omega;
+
             while (xi <= b)
             {
                 crds1.Add(new DataPoint(xi, yi));
@@ -61,18 +63,19 @@ namespace Lab6
                 double k2 = h * eq1(xi + h / 2, yi + k1 / 2, zi + l1 / 2);
                 double l2 = h * eq2(xi + h / 2, yi + k1 / 2 , zi + l1 / 2);
 
-                double k3 = h * eq1(xi + h / 2, yi + k2 / 2,zi + l2 / 2);
-                double l3 = h * eq2(xi + h / 2, yi + k2 / 2,zi + l2 / 2);
+                double k3 = h * eq1(xi + h / 2, yi + k2 / 2, zi + l2 / 2);
+                double l3 = h * eq2(xi + h / 2, yi + k2 / 2, zi + l2 / 2);
 
                 double k4 = h * eq1(xi + h, yi + k3, zi + l3);
                 double l4 = h * eq2(xi + h, yi + k3, zi + l3);
 
 
-                double om = Math.Abs((k2 - k3) / (k1 - k2));
+                /* double om = Math.Abs((k2 - k3) / (k1 - k2));
+             
                 if (om < estval)
                     h *= 2;
                 else
-                    h /= 2;
+                    h /= 2;*/
 
                 xi += h;
                 yi += (k1 + 2 * k2 + 2 * k3 + k4) / 6;

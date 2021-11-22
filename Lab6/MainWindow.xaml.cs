@@ -35,6 +35,7 @@ namespace Lab6
             double f1_0;
             double f2_0;
             double estval;
+            double omega;
 
             try
             {
@@ -43,7 +44,8 @@ namespace Lab6
                 n = Int32.Parse(tbN.Text, CultureInfo.InvariantCulture);
                 f1_0 = Double.Parse(tbF1_0.Text, CultureInfo.InvariantCulture);
                 f2_0 = Double.Parse(tbF2_0.Text, CultureInfo.InvariantCulture);
-                estval = Double.Parse(tbEstval.Text, CultureInfo.InvariantCulture); ;
+                estval = Double.Parse(tbEstval.Text, CultureInfo.InvariantCulture);
+                omega = Double.Parse(tbOmega.Text, CultureInfo.InvariantCulture);
             }
             catch (FormatException)
             {
@@ -52,7 +54,7 @@ namespace Lab6
             }
             btnCalculate.Content = "Calculate";
 
-            var res = DiffEqSolve.RKSystem2(a, b, n, f1_0, f2_0, F2FirstDev, F2SecondDev, estval);
+            var res = DiffEqSolve.RKSystem2(a, b, n, f1_0, f2_0, F3FirstDev, F3SecondDev, estval, omega);
 
             string s = "";
             for (int i = 0; i < res[0].Count; i++)
@@ -66,12 +68,12 @@ namespace Lab6
 
             LineSeries ls1 = new();
             res[0].ForEach(x => ls1.Points.Add(x));
-            ls1.Title = "y' = e^x * cos x - y";
+            ls1.Title = "y' = z";
             model.Series.Add(ls1);
       
             LineSeries ls2 = new();
             res[1].ForEach(x => ls2.Points.Add(x));
-            ls2.Title = "y'' = 2 e^x cos x";
+            ls2.Title = "y'' = -omega * y";
             model.Series.Add(ls2);
 
             model.Legends.Add(new Legend()
